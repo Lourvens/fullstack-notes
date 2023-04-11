@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-import { Note } from "../types";
+import { NoteProp } from "../types";
 
 interface NoteState {
-  list: Note[];
+  list: NoteProp[];
 }
 const initialState: NoteState = { list: [] };
 
@@ -11,11 +11,11 @@ export const noteSlice = createSlice({
   name: "note",
   initialState,
   reducers: {
-    addNote(state, action: PayloadAction<Note>) {
+    addNote(state, action: PayloadAction<NoteProp>) {
       const newList = [...state.list, action.payload];
       state.list = newList;
     },
-    updateAll(state, action: PayloadAction<Note[]>) {
+    updateAll(state, action: PayloadAction<NoteProp[]>) {
       state.list = action.payload;
     },
   },
